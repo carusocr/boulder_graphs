@@ -1,0 +1,23 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="polygonalGraphWidget.js"></script>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<script>
+var labels = new Array('CRIMP', 'AIR', 'FEET', 'POWER', 'BALANCE');
+var data1= new Array(50, 60, 63, 73, 23);
+var data2 = new Array(80, 63, 80, 80, 85);
+var data3 = new Array(70, 73, 60, 40, 95);
+var data = new Array(data1, data2, data3);
+var bgcol = "rgba(215, 215, 0, 1.0)";
+var myVar = $("#myCanvas").polygonalGraphWidget({
+  labels: labels,
+  graph_colors: [
+     bgcol,
+     "rgba(0, 255, 0, 0.6)",
+     "rgba(0, 0, 255, 0.6)"
+  ],
+
+  data: data1
+});
+
+</script>
