@@ -3,7 +3,7 @@ Bouldering problems use a simple number system to show difficulty. Trying to use
 
 General ideas:
 
-This should be 
+This should be a page I can load. What sort of view? I like the idea of being able to browse by general V-rating and bring up a composite page of all problem graphs. The graph values would be stored in...what, an xml file? Doesn't necessarily need a database although the option to add one through a web interface might call for that.
 
 Characteristics represented in the graph:
 
