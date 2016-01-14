@@ -1,3 +1,5 @@
+<html lang="en">
+<head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="polygonalGraphWidget.js"></script>
@@ -12,8 +14,18 @@
    $( "#slider" ).slider({
    	value: 50
    });
+   $( "#eq > span" ).each(function() {
+      // read initial values from markup and remove that
+      var value = parseInt( $( this ).text(), 10 );
+      //value = 55
+      $( "#eq" ).empty().slider({
+        value: value
+      });
+    });
  });
 </script>
+</head>
+<body>
 
 <div id="slider"></div>
 
@@ -36,3 +48,9 @@ var myVar = $("#myCanvas").polygonalGraphWidget({
   data: data1
 });
 </script>
+<div id="eq">
+  <span>88</span>
+</div>
+
+</body>
+</html>
