@@ -1,6 +1,22 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script type="text/javascript" src="polygonalGraphWidget.js"></script>
+
+</script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="../resources/jquery-ui.css">
+<script>
+ $(function() {
+   $( "#slider" ).slider({
+   	value: 50
+   });
+ });
+</script>
+
+<div id="slider"></div>
+
 <canvas id="myCanvas" width="500" height="500"></canvas>
 <script>
 var labels = new Array('CRIMP', 'AIR', 'FEET', 'POWER', 'BALANCE');
@@ -19,5 +35,4 @@ var myVar = $("#myCanvas").polygonalGraphWidget({
 
   data: data1
 });
-
 </script>
