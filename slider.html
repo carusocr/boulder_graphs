@@ -14,13 +14,32 @@
     change: function() {
         var value = $("#slider").slider("option","value");
         $("#slider").find(".ui-slider-handle").text(value);
+        updateTest(value);
     },
     slide: function() {
         var value = $("#slider").slider("option","value");
         $("#slider").find(".ui-slider-handle").text(value);
+        updateTest(value);
     }
    });
  });
+ function updateTest(value) {
+  //alert(value);  
+  //this works! holy shit.
+  var labels = new Array('CRIMP', 'AIR', 'FEET', 'POWER', 'BALANCE');
+  var data1= new Array(value, 60, 63, 73, 23);
+  var bgcol = "rgba(215, 215, 0, 1.0)";
+  var myVar = $("#myCanvas").polygonalGraphWidget({
+  labels: labels,
+  graph_colors: [
+     bgcol,
+     "rgba(0, 255, 0, 0.6)",
+     "rgba(0, 0, 255, 0.6)"
+  ],
+
+  data: data1
+  });
+}
 </script>
 </head>
 
@@ -31,9 +50,7 @@ CRIMP   <div id="slider"></div>
 <script>
 var labels = new Array('CRIMP', 'AIR', 'FEET', 'POWER', 'BALANCE');
 var data1= new Array(50, 60, 63, 73, 23);
-var data2 = new Array(80, 63, 80, 80, 85);
-var data3 = new Array(70, 73, 60, 40, 95);
-var data = new Array(data1, data2, data3);
+//var data = new Array(data1, data2, data3);
 var bgcol = "rgba(215, 215, 0, 1.0)";
 var myVar = $("#myCanvas").polygonalGraphWidget({
   labels: labels,
