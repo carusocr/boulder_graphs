@@ -1,62 +1,51 @@
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>jQuery UI Slider - Multiple sliders</title>
-  <link rel="stylesheet" href="../resources/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <style>
-  #eq > span {
-    height:120px; float:left; margin:15px
-  }
-  </style>
-  <script>
-  $(function() {
-    // setup master volume
-    $( "#master" ).slider({
-      value: 60,
-      orientation: "horizontal",
-      range: "min",
-      animate: true
-    });
-    // setup graphic EQ
-    $( "#eq > span" ).each(function() {
-      // read initial values from markup and remove that
-      var value = parseInt( $( this ).text(), 10 );
-      $( this ).empty().slider({
-        value: value,
-        animate: true,
-        orientation: "vertical"
-      });
-    });
-  });
-  </script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="polygonalGraphWidget.js"></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="../resources/jquery-ui.css">
+<script>
+ $(function() {
+   $( "#slider" ).slider({
+    value: 0,
+    animate: "fast",
+    change: function() {
+        var value = $("#slider").slider("option","value");
+        $("#slider").find(".ui-slider-handle").text(value);
+    },
+    slide: function() {
+        var value = $("#slider").slider("option","value");
+        $("#slider").find(".ui-slider-handle").text(value);
+    }
+   });
+ });
+</script>
 </head>
+
+
 <body>
- 
-<p class="ui-state-default ui-corner-all ui-helper-clearfix" style="padding:4px;">
-  <span class="ui-icon ui-icon-volume-on" style="float:left; margin:-2px 5px 0 0;"></span>
-  Master volume
-</p>
- 
-<div id="master" style="width:260px; margin:15px;"></div>
- 
-<p class="ui-state-default ui-corner-all" style="padding:4px;margin-top:4em;">
-  <span class="ui-icon ui-icon-signal" style="float:left; margin:-2px 5px 0 0;"></span>
-  Graphic EQ
-</p>
- 
-<div id="eq">
-  <span>88</span>
-  <span>77</span>
-  <span>55</span>
-  <span>33</span>
-  <span>40</span>
-  <span>45</span>
-  <span>70</span>
-</div>
- 
- 
+CRIMP   <div id="slider"></div>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<script>
+var labels = new Array('CRIMP', 'AIR', 'FEET', 'POWER', 'BALANCE');
+var data1= new Array(50, 60, 63, 73, 23);
+var data2 = new Array(80, 63, 80, 80, 85);
+var data3 = new Array(70, 73, 60, 40, 95);
+var data = new Array(data1, data2, data3);
+var bgcol = "rgba(215, 215, 0, 1.0)";
+var myVar = $("#myCanvas").polygonalGraphWidget({
+  labels: labels,
+  graph_colors: [
+     bgcol,
+     "rgba(0, 255, 0, 0.6)",
+     "rgba(0, 0, 255, 0.6)"
+  ],
+
+  data: data1
+});
+</script>
 </body>
+
 </html>
