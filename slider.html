@@ -8,26 +8,39 @@
 <link rel="stylesheet" href="../resources/jquery-ui.css">
 <script>
  $(function() {
-   $( "#slider" ).slider({
-    value: 0,
+   $( "#slider1" ).slider({
+//   $( "[id^=slider]" ).slider({
+    value: 50,
     animate: "fast",
     change: function() {
-        var value = $("#slider").slider("option","value");
-        $("#slider").find(".ui-slider-handle").text(value);
+        var value = $("#slider1").slider("option","value");
+        $("#slider1").find(".ui-slider-handle").text(value);
         updateTest(value);
     },
     slide: function() {
-        var value = $("#slider").slider("option","value");
-        $("#slider").find(".ui-slider-handle").text(value);
+        var value = $("#slider1").slider("option","value");
+        $("#slider1").find(".ui-slider-handle").text(value);
+        updateTest(value);
+    }
+   });
+   $( "#slider2" ).slider({
+    value: 50,
+    animate: "fast",
+    change: function() {
+        var value = $("#slider2").slider("option","value");
+        $("#slider2").find(".ui-slider-handle").text(value);
+        updateTest(value);
+    },
+    slide: function() {
+        var value = $("#slider2").slider("option","value");
+        $("#slider2").find(".ui-slider-handle").text(value);
         updateTest(value);
     }
    });
  });
  function updateTest(value) {
-  //alert(value);  
-  //this works! holy shit.
   var labels = new Array('CRIMP', 'AIR', 'FEET', 'POWER', 'BALANCE');
-  var data1= new Array(value, 60, 63, 73, 23);
+  var data1= new Array(value, 60, value, 73, 23);
   var bgcol = "rgba(215, 215, 0, 1.0)";
   var myVar = $("#myCanvas").polygonalGraphWidget({
   labels: labels,
@@ -45,7 +58,8 @@
 
 
 <body>
-CRIMP   <div id="slider"></div>
+CRIMP   <div id="slider1"></div>
+FEET   <div id="slider2"></div>
 <canvas id="myCanvas" width="500" height="500"></canvas>
 <script>
 var labels = new Array('CRIMP', 'AIR', 'FEET', 'POWER', 'BALANCE');
